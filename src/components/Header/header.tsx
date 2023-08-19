@@ -1,4 +1,5 @@
 import React from 'react'
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 
 interface HeaderProps {
     title: string
@@ -10,7 +11,8 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <h1 className="text-2xl font-semibold mr-auto">{title}</h1>
-                    <div className="flex space-x-4">
+                    <div className="flex items-center space-x-4">
+                        <ThemeToggle />
                         <a
                             href="/home"
                             className="text-xl font-semibold hover:text-green-500 transition duration-250 ease-in-out"

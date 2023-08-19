@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 
 import Header from '../components/Header/header'
 import Footer from '../components/Footer/footer'
+import { ThemeProvider } from './theme-provider'
+import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle'
 import { ReactNode } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,15 +23,21 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
             <body>
-                <div className={inter.className}>
-                    <div className="flex flex-col min-h-screen bg-gray-100">
-                        <Header title="Tunes Blend" />
-                        <main className="flex-grow flex justify-center items-center">
-                            {children}
-                        </main>
-                        <Footer />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                >
+                    <div className={inter.className}>
+                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800">
+                            <Header title="Tunes Blend" />
+                            <main className="flex-grow flex justify-center items-center">
+                                {children}
+                            </main>
+                            <Footer />
+                        </div>
                     </div>
-                </div>
+                </ThemeProvider>
             </body>
         </html>
     )
