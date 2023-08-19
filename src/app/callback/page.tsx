@@ -17,10 +17,12 @@ const CallbackPage: React.FC = () => {
         /* state only used for PCKE authentication, ignored */
         const state = searchParams.get('state') as string
 
-        const clientId = '2bad5cdadccd43fa8448c86264f62d03'
-        const clientSecret = '939bb5cfcea04816843f88073f3eea02'
-        const redirectUri = 'http://127.0.0.1:3000/callback'
-
+        const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
+        const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
+        const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
+        console.log(clientId)
+        console.log(clientSecret)
+        console.log(redirectUri)
         const authOptions = {
             url: 'https://accounts.spotify.com/api/token',
             method: 'post',

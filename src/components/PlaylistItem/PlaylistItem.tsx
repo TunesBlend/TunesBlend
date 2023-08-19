@@ -18,16 +18,30 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
             <div className="col-span-3 flex justify-center items-left flex-col">
                 <h2 className="font-semibold text-lg mb-2">{playlist.name}</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    {playlist.description}
+                    "{playlist.description}"
                 </p>
             </div>
-            <div className="col-span-1 flex flex-col justify-between mt-2 mb-2">
+            {/* <div className="col-span-1 flex flex-col justify-between mt-2 mb-2">
                 <button className="bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-2 transition duration-250 ease-in-out">
                     Playlist Details
                 </button>
                 <button className="bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out">
                     View Tracks
                 </button>
+            </div> */}
+            <div className="col-span-1 flex flex-col justify-between mt-2 mb-2">
+                <a
+                    href={`/playlists/${playlist.id}/tracks`}
+                    className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-2 transition duration-250 ease-in-out"
+                >
+                    Playlist Details
+                </a>
+                <a
+                    href={`/playlists/${playlist.id}/tracks`}
+                    className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
+                >
+                    View Tracks
+                </a>
             </div>
         </li>
     )

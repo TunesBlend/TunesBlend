@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { fetchPlaylists } from '../../spotify/spotify'
+import { fetchPlaylists } from '../../spotify/utils'
 import { Playlist } from '../../interfaces/user_interfaces'
 import PlaylistDisplay from '../../components/PlaylistDisplay/PlaylistDisplay'
 

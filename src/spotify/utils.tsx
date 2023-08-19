@@ -14,7 +14,15 @@ export const fetchPlaylists = async (accessToken: string) => {
         )
         return response.data.items
     } catch (error) {
-        console.error('Error fetching playlists:', error)
+        if (axios.isAxiosError(error)) {
+            if (error.response && error.response.status === 401) {
+                console.error('Unauthorized:', error.response.data)
+            } else {
+                console.error('Error fetching playlists:', error)
+            }
+        } else {
+            console.error('Error fetching playlists:', error)
+        }
         throw error
     }
 }

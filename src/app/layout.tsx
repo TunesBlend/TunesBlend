@@ -8,6 +8,9 @@ import { ThemeProvider } from './theme-provider'
 import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle'
 import { ReactNode } from 'react'
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

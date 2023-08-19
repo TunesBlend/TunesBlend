@@ -1,8 +1,8 @@
 import React from 'react'
 
 const LoginPage: React.FC = () => {
-    const clientId = '2bad5cdadccd43fa8448c86264f62d03'
-    const redirectUri = 'http://127.0.0.1:3000/callback'
+    const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
+    const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
     const scope = 'user-read-private user-read-email' // Add desired scopes
 
     const authorizeUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`
