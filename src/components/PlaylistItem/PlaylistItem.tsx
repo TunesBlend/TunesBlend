@@ -21,23 +21,15 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                     "{playlist.description}"
                 </p>
             </div>
-            {/* <div className="col-span-1 flex flex-col justify-between mt-2 mb-2">
-                <button className="bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-2 transition duration-250 ease-in-out">
-                    Playlist Details
-                </button>
-                <button className="bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out">
-                    View Tracks
-                </button>
-            </div> */}
             <div className="col-span-1 flex flex-col justify-between mt-2 mb-2">
                 <a
-                    href={`/playlists/${playlist.id}/tracks`}
+                    href={`/playlists/details/${playlist.id}`}
                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-2 transition duration-250 ease-in-out"
                 >
                     Playlist Details
                 </a>
                 <a
-                    href={`/playlists/${playlist.id}/tracks`}
+                    href={`/playlists/tracks/${playlist.id}`}
                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                 >
                     View Tracks

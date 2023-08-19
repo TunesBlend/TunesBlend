@@ -13,7 +13,6 @@ const PlaylistPage: React.FC = () => {
         if (access_token) {
             fetchPlaylists(access_token)
                 .then(items => {
-                    console.log(items)
                     setPlaylists(items)
                 })
                 .catch(error => {

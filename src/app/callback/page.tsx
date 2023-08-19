@@ -20,9 +20,7 @@ const CallbackPage: React.FC = () => {
         const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
         const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
         const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
-        console.log(clientId)
-        console.log(clientSecret)
-        console.log(redirectUri)
+
         const authOptions = {
             url: 'https://accounts.spotify.com/api/token',
             method: 'post',
@@ -58,7 +56,7 @@ const CallbackPage: React.FC = () => {
                 const timeout = 1.5
                 setTimeout(() => {
                     setLoading(false) // Hide the loading animation
-                    router.push('/home') // Navigate to /home after the delay
+                    router.push('/playlists') // Navigate to /home after the delay
                 }, timeout * 1000)
             })
             .catch(error => {

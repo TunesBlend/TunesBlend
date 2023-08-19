@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                     <div className="flex items-center space-x-4">
                         <ThemeToggle />
                         <a
-                            href="/home"
+                            href="/playlists"
                             className="text-xl text-gray-800 dark:text-gray-300 font-semibold hover:text-green-700 dark:hover:text-green-700 transition duration-250 ease-in-out"
                         >
                             Home
