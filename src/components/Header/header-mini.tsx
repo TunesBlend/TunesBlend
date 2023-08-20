@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
     return (
-        <header className="h-20 flex items-center bg-gray-100 dark:bg-gray-800 text-white py-4 sticky top-0 z-5 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-700">
+        <header className="h-20 flex items-center bg-gray-100 dark:bg-gray-800 text-white py-4 sticky top-0 z-5 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70">
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <h1 className="text-2xl font-semibold mr-auto text-gray-800 dark:text-gray-300">
