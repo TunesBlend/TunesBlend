@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { fetchTracks } from '@/spotify/utils'
 import TrackDisplay from '@/components/TrackDisplay/TrackDisplay'
-import Header from '@/components/Header/header'
+import Header from '@/components/Header/header-mini'
 
 const PlaylistPage: React.FC = ({ params }: any) => {
     const [tracks, setTracks] = useState([])

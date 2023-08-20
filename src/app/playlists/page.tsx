@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { fetchPlaylists } from '../../spotify/utils'
-import { Playlist } from '../../interfaces/user_interfaces'
-import PlaylistDisplay from '../../components/PlaylistDisplay/PlaylistDisplay'
+import { fetchPlaylists } from '@/spotify/utils'
+import { Playlist } from '@/interfaces/user_interfaces'
+import PlaylistDisplay from '@/components/PlaylistDisplay/PlaylistDisplay'
 
 const PlaylistPage: React.FC = () => {
     const [playlists, setPlaylists] = useState<Playlist[]>([])
