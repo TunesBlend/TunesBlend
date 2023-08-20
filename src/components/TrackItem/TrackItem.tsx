@@ -11,7 +11,10 @@ const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
     const handleImageClick = () => {
         if (audioRef.current) {
             if (audioRef.current.paused) {
-                audioRef.current.play()
+                const promise = audioRef.current.play()
+                if (promise !== undefined) {
+                    promise.then(() => {}).catch(error => console.error(error)) // Pass the error parameter
+                }
             } else {
                 audioRef.current.pause()
             }
