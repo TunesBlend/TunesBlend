@@ -21,10 +21,13 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
                     className={`mx-auto w-64 h-64 ${
                         isPlaceholder ? 'dark:bg-gray-600 bg-gray-300' : ''
                     } ${isPlaceholder ? 'blur' : ''}`}
+                    style={{
+                        backgroundImage: isPlaceholder ? 'none' : '',
+                    }}
                 />
 
                 <h2
-                    className={`font-semibold text-lg mb-1 ${
+                    className={`mt-3 font-semibold text-lg mb-1 text-gray-900 dark:text-white ${
                         isPlaceholder ? 'blur' : ''
                     }`}
                 >
@@ -33,7 +36,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
                         : selectedTrack.track.name}
                 </h2>
                 <p
-                    className={`text-sm text-gray-500 ${
+                    className={`text-sm text-gray-600 dark:text-gray-500 ${
                         isPlaceholder ? 'blur' : ''
                     }`}
                 >

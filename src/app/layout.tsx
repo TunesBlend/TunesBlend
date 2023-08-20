@@ -32,7 +32,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
                     enableSystem
                 >
                     <div className={inter.className}>
-                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800">
+                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800 p-4 pt-0 pb-0">
                             <Header title="TunesBlend" />
                             <main className="flex-grow flex justify-center items-center">
                                 {children}

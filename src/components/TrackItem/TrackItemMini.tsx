@@ -13,6 +13,8 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     const audioRef = useRef<HTMLAudioElement>(null)
 
     const handleImageClick = () => {
+        onMouseEnter()
+
         if (audioRef.current) {
             if (audioRef.current.paused) {
                 const promise = audioRef.current.play()
@@ -36,7 +38,7 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     }
 
     const handleMouseEnter = () => {
-        onMouseEnter()
+        // onMouseEnter()
     }
 
     // const fadeOutAndPause = (audio: HTMLAudioElement) => {
@@ -55,7 +57,7 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     // }
 
     return (
-        <li className="border p-2 shadow grid grid-cols-1 gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
+        <li className="border p-1 shadow grid grid-cols-1 gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
             <div
                 className="col-span-1 flex justify-center items-center"
                 style={{
@@ -68,7 +70,7 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
                 <img
                     src={trackList.track.album.images[1].url}
                     alt={trackList.track.name}
-                    className="h-16 w-16"
+                    className="h-24 w-24"
                 />
                 {trackList.track.preview_url && (
                     <audio ref={audioRef} src={trackList.track.preview_url} />

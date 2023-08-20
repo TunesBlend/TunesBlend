@@ -37,7 +37,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
                     ))}
                 </ul>
             ) : (
-                <>
+                <div>
                     <TrackDetails selectedTrack={selectedTrack} />
                     <div className="grid gap-2 grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-11 grid-auto-flow-row">
                         {tracks.map(track => (
@@ -48,7 +48,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
                             />
                         ))}
                     </div>
-                </>
+                </div>
             )}
         </div>
     )

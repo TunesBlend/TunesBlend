@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { fetchTracks } from '../../../../spotify/utils'
-import TrackDisplay from '../../../../components/TrackDisplay/TrackDisplay'
+import { fetchTracks } from '@/spotify/utils'
+import TrackDisplay from '@/components/TrackDisplay/TrackDisplay'
+import Header from '@/components/Header/header'
 
 const PlaylistPage: React.FC = ({ params }: any) => {
     const [tracks, setTracks] = useState([])
@@ -16,10 +17,6 @@ const PlaylistPage: React.FC = ({ params }: any) => {
                     items.map((item: { [x: string]: any }) => {
                         const name = item['track']['name']
                         const preview_url = item['track']['preview_url']
-                        // console.log(`${name}: ${preview_url}`)
-                        if (preview_url === null) {
-                            console.log(name)
-                        }
                     })
                     setTracks(items)
                 })
@@ -31,6 +28,7 @@ const PlaylistPage: React.FC = ({ params }: any) => {
 
     return (
         <div>
+            <Header title="Playlist" />
             <TrackDisplay tracks={tracks}></TrackDisplay>
         </div>
     )
