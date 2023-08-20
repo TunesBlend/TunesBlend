@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { fetchPlaylists } from '@/spotify/utils'
+import { fetchPlaylists, userDetails } from '@/spotify/utils'
 import { Playlist } from '@/interfaces/user_interfaces'
 import PlaylistDisplay from '@/components/PlaylistDisplay/PlaylistDisplay'
 
@@ -11,6 +11,7 @@ const PlaylistPage: React.FC = () => {
     useEffect(() => {
         const access_token = localStorage.getItem('access_token')
         if (access_token) {
+            const user_profile = userDetails(access_token)
             fetchPlaylists(access_token)
                 .then(items => {
                     setPlaylists(items)

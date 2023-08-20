@@ -16,7 +16,7 @@ export const ThemeToggle = () => {
 
     return (
         <button
-            className={`mr-2 flex items-center justify-center bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent active:bg-transparent dark:active:bg-transparent transition duration-300`}
+            className={`w-6 mr-2 flex items-center justify-center bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent active:bg-transparent dark:active:bg-transparent transition duration-300`}
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
             {theme === 'light' ? (

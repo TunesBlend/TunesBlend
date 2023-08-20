@@ -11,20 +11,17 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
     return (
         <div className="bg-transparent text-white p-4 text-center">
             <div>
-                <img
-                    src={
-                        isPlaceholder
-                            ? ''
-                            : selectedTrack.track.album.images[0].url
-                    }
-                    alt={isPlaceholder ? '' : selectedTrack.track.name}
-                    className={`mx-auto w-64 h-64 ${
-                        isPlaceholder ? 'dark:bg-gray-600 bg-gray-300' : ''
-                    } ${isPlaceholder ? 'blur' : ''}`}
-                    style={{
-                        backgroundImage: isPlaceholder ? 'none' : '',
-                    }}
-                />
+                {!isPlaceholder ? (
+                    <img
+                        src={selectedTrack.track.album.images[0].url}
+                        alt={selectedTrack.track.name}
+                        className={`mx-auto w-64 h-64`}
+                    />
+                ) : (
+                    <div
+                        className={`mx-auto w-64 h-64 dark:bg-gray-600 bg-gray-300 blur`}
+                    />
+                )}
 
                 <h2
                     className={`mt-3 font-semibold text-lg mb-1 text-gray-900 dark:text-white ${

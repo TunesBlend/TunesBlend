@@ -9,7 +9,7 @@ interface PlaylistDisplayProps {
 const PlaylistDisplay: React.FC<PlaylistDisplayProps> = ({ playlists }) => {
     return (
         <div className="m-4">
-            <ul className="space-y-4">
+            <ul className="space-y-2">
                 {playlists.map(playlist => (
                     <PlaylistItem key={playlist.id} playlist={playlist} />
                 ))}
