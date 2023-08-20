@@ -16,6 +16,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
                     promise.then(() => {}).catch(error => console.error(error)) // Pass the error parameter
                 }
             } else {
+                // fadeOutAndPause(audioRef.current)
                 audioRef.current.pause()
             }
         }
@@ -23,17 +24,35 @@ const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
 
     const handleMouseLeave = () => {
         if (audioRef.current) {
-            if (audioRef.current.played) {
+            if (!audioRef.current.paused) {
+                // fadeOutAndPause(audioRef.current)
                 audioRef.current.pause()
             }
         }
     }
 
+    // const fadeOutAndPause = (audio: HTMLAudioElement) => {
+    //     const fadeInterval = 100 // Adjust the interval for smoother fading
+    //     const fadeStep = audio.volume / ((audio.duration * 1000) / fadeInterval)
+
+    //     const fadeOutInterval = setInterval(() => {
+    //         if (audio.volume - fadeStep > 0) {
+    //             audio.volume -= fadeStep
+    //         } else {
+    //             audio.pause()
+    //             clearInterval(fadeOutInterval)
+    //             audio.volume = 1 // Reset volume
+    //         }
+    //     }, fadeInterval)
+    // }
+
     return (
         <li className="border p-2 shadow grid grid-cols-5 gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
             <div
                 className="col-span-1 flex justify-center items-center"
-                style={{ cursor: 'pointer' }}
+                style={{
+                    cursor: trackList.track.preview_url ? 'pointer' : 'default',
+                }}
                 onClick={handleImageClick}
                 onMouseLeave={handleMouseLeave}
             >
