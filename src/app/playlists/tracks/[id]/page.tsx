@@ -33,7 +33,7 @@ const PlaylistPage: React.FC = ({ params }: any) => {
 
     return (
         <div>
-            <Header title={playlistDetails?.name || 'Playlist'} />
+            <h1 className="text-center mt-4">{playlistDetails?.name || ''}</h1>
             <TrackDisplay tracks={tracks}></TrackDisplay>
         </div>
     )
