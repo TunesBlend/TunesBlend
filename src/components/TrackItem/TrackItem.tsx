@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Track } from '../../interfaces/user_interfaces'
 
 interface TrackItemProps {
@@ -6,30 +6,33 @@ interface TrackItemProps {
 }
 
 const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
-    const [isPlaying, setIsPlaying] = useState(false)
-    const audioRef = useRef<HTMLAudioElement | null>(null)
+    const audioRef = useRef<HTMLAudioElement>(null)
 
-    useEffect(() => {
+    const handleImageClick = () => {
         if (audioRef.current) {
-            if (isPlaying) {
+            if (audioRef.current.paused) {
                 audioRef.current.play()
             } else {
                 audioRef.current.pause()
             }
         }
-    }, [isPlaying])
+    }
 
-    const handleAudioClick = () => {
-        console.log('test')
-        setIsPlaying(prevIsPlaying => !prevIsPlaying)
+    const handleMouseLeave = () => {
+        if (audioRef.current) {
+            if (audioRef.current.played) {
+                audioRef.current.pause()
+            }
+        }
     }
 
     return (
-        <li className="border p-2 mb-4 rounded shadow grid grid-cols-5 gap-4 dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700">
+        <li className="border p-2 shadow grid grid-cols-5 gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
             <div
                 className="col-span-1 flex justify-center items-center"
-                onClick={handleAudioClick}
-                onMouseLeave={handleAudioClick}
+                style={{ cursor: 'pointer' }}
+                onClick={handleImageClick}
+                onMouseLeave={handleMouseLeave}
             >
                 <img
                     src={trackList.track.album.images[1].url}

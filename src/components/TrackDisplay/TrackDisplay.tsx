@@ -10,7 +10,7 @@ interface TrackDisplayProps {
 const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
     return (
         <div className="m-4">
-            <ul className="space-y-4">
+            <ul className="space-y-0">
                 {tracks.map(tracks => (
                     <TrackItem key={tracks.track.id} trackList={tracks} />
                 ))}
