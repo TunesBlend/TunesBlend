@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter, redirect } from 'next/navigation'
 import querystring from 'querystring'
 import axios from 'axios'
+import { userDetails } from '@/spotify/utils'
 
 import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation'
 
@@ -40,7 +41,7 @@ const CallbackPage: React.FC = () => {
         }
 
         axios(authOptions)
-            .then(response => {
+            .then(async response => {
                 const {
                     access_token,
                     refresh_token,
@@ -49,6 +50,9 @@ const CallbackPage: React.FC = () => {
                     token_type,
                 } = response.data
 
+                const user_details = await userDetails(access_token)
+
+                localStorage.setItem('user_details', user_details.display_name)
                 localStorage.setItem('access_token', access_token)
                 localStorage.setItem('refresh_token', refresh_token)
             })
