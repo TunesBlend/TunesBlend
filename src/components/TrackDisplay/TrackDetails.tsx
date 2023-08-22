@@ -14,18 +14,18 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
                     <img
                         src={selectedTrack.track.album.images[0].url}
                         alt={selectedTrack.track.name}
-                        className={`mx-auto max-w-sm object-fit`}
+                        className={`mx-auto w-[60vw] object-contain`}
                     />
                 ) : (
                     <img
                         src={'/images/TrackPicturePlaceholder.png'}
                         alt={'test'}
-                        className={`mx-auto max-w-sm object-contain blur`}
+                        className={`mx-auto w-[60vw] object-contain blur`}
                     />
                 )}
 
                 <h2
-                    className={`mt-3 font-semibold text-lg mb-1 text-gray-900 dark:text-white ${
+                    className={`mt-3 font-semibold text-md lg:text-lg mb-1 text-gray-900 dark:text-white ${
                         isPlaceholder ? 'blur' : ''
                     }`}
                 >

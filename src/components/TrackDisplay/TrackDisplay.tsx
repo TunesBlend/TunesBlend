@@ -8,15 +8,12 @@ import { faGrip, faGripLines } from '@fortawesome/free-solid-svg-icons'
 
 interface TrackDisplayProps {
     tracks: Track[]
+    displayGrid: boolean
 }
 
-const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
+const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks, displayGrid }) => {
     const [displayList, setDisplayList] = useState(false)
     const [selectedTrack, setSelectedTrack] = useState<Track | null>(null)
-
-    const toggleDisplay = () => {
-        setDisplayList(!displayList)
-    }
 
     const handleTrackSelection = (track: Track) => {
         setSelectedTrack(track)
@@ -32,25 +29,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
 
     return (
         <div className="">
-            <div className="flex justify-center items-start my-2">
-                <button
-                    className="px-4 py-2 bg-green-800 text-white rounded"
-                    onClick={toggleDisplay}
-                >
-                    {displayList ? (
-                        <FontAwesomeIcon icon={faGrip} />
-                    ) : (
-                        <FontAwesomeIcon icon={faGripLines} />
-                    )}
-                </button>
-            </div>
-            {displayList ? (
-                <ul className="space-y-0">
-                    {tracks.map(track => (
-                        <TrackItem key={track.track.id} trackList={track} />
-                    ))}
-                </ul>
-            ) : (
+            {displayGrid ? (
                 <div>
                     <TrackDetails selectedTrack={selectedTrack} />
                     <div className="flex flex-wrap justify-between gap-1">
@@ -63,6 +42,12 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
                         ))}
                     </div>
                 </div>
+            ) : (
+                <ul className="space-y-2 my-3">
+                    {tracks.map(track => (
+                        <TrackItem key={track.track.id} trackList={track} />
+                    ))}
+                </ul>
             )}
         </div>
     )

@@ -3,18 +3,28 @@
 import React, { useEffect, useState } from 'react'
 import { fetchTracks, fetchPlaylistDetails } from '@/spotify/utils'
 import TrackDisplay from '@/components/TrackDisplay/TrackDisplay'
+import HeaderMini from '@/components/Header/header-mini'
 
 const PlaylistPage: React.FC = ({ params }: any) => {
     const [tracks, setTracks] = useState([])
-    const [playlistDetails, setPlaylistDetails] = useState<any>()
     const playlist_uri = params.id
+
+    const [displayGrid, setDisplayGrid] = useState(true)
+    const toggleDisplay = () => {
+        setDisplayGrid(!displayGrid)
+    }
+
+    const [playlistTitle, setPlaylistTitle] = useState<string>('')
+    const setTitle = (string: string) => {
+        setPlaylistTitle(string)
+    }
 
     useEffect(() => {
         const access_token = localStorage.getItem('access_token')
         if (access_token) {
             fetchPlaylistDetails(access_token, playlist_uri)
                 .then(details => {
-                    setPlaylistDetails(details)
+                    setTitle(details['name'])
                 })
                 .catch(error => {
                     console.error('Error fetching playlist details:', error)
@@ -31,8 +41,20 @@ const PlaylistPage: React.FC = ({ params }: any) => {
     }, [playlist_uri])
 
     return (
-        <div className="w-[50vw] mx-auto">
-            <TrackDisplay tracks={tracks}></TrackDisplay>
+        <div>
+            <div className="w-[80vw] mx-auto">
+                <HeaderMini
+                    playlistTitle={playlistTitle}
+                    toggleDisplay={toggleDisplay}
+                    displayGrid={displayGrid}
+                />
+            </div>
+            <div className="w-[50vw] mx-auto">
+                <TrackDisplay
+                    tracks={tracks}
+                    displayGrid={displayGrid}
+                ></TrackDisplay>
+            </div>
         </div>
     )
 }
