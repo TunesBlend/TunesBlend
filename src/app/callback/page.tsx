@@ -72,7 +72,7 @@ const CallbackPage: React.FC = () => {
     }, [])
 
     return (
-        <div>
+        <div className="flex h-[80vh] justify-center items-center">
             <LoadingAnimation numBalls={5} />
         </div>
     )

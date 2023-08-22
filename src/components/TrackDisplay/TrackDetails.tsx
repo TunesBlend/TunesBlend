@@ -14,13 +14,13 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
                     <img
                         src={selectedTrack.track.album.images[0].url}
                         alt={selectedTrack.track.name}
-                        className={`mx-auto w-[60vw] object-contain`}
+                        className={`mx-auto object-contain w-[50vw] lg:w-[20vw]`}
                     />
                 ) : (
                     <img
                         src={'/images/TrackPicturePlaceholder.png'}
                         alt={'test'}
-                        className={`mx-auto w-[60vw] object-contain blur`}
+                        className={`mx-auto object-contain blur w-[50vw] lg:w-[20vw]`}
                     />
                 )}
 
