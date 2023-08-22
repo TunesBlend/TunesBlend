@@ -15,7 +15,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
     return (
         <div>
             {/* Big Screen Sizes */}
-            <div className="hidden xl:block">
+            <div className="hidden lg:block">
                 <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700">
                     <div className="col-span-1 flex justify-center items-center">
                         <img
@@ -33,33 +33,46 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                         </p>
                     </div>
                     <div className="col-span-1 flex flex-col justify-center">
-                        <div>
+                        <div className="grid grid-cols-2 gap-2">
                             <a
                                 href={`/playlists/details/${playlist.id}`}
-                                className="text-sm text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-4 transition duration-250 ease-in-out"
+                                className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                             >
-                                Details
+                                <FontAwesomeIcon
+                                    icon={faCircleInfo}
+                                    size="lg"
+                                />
                             </a>
                             <a
                                 href={`/playlists/recommendations/${playlist.id}`}
-                                className="text-sm text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-4 transition duration-250 ease-in-out"
+                                className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                             >
-                                Recommend
+                                <FontAwesomeIcon icon={faLightbulb} size="lg" />
                             </a>
                             <a
                                 href={`/playlists/tracks/${playlist.id}`}
-                                className="text-sm text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition ease-in-out duration-250 "
+                                className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                             >
-                                Tracks
+                                <FontAwesomeIcon icon={faList} size="lg" />
+                            </a>
+                            <a
+                                href={`/playlists/details/${playlist.id}`}
+                                className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faCircleInfo}
+                                    size="lg"
+                                />
                             </a>
                         </div>
+
                         <div></div>
                     </div>
                 </div>
             </div>
 
             {/* Small Screen Sizes */}
-            <div className="block xl:hidden">
+            <div className="block lg:hidden">
                 <div className="w-auto mt-4 border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700">
                     {/* <div className="border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700"> */}
                     <div className=" flex justify-center items-center">

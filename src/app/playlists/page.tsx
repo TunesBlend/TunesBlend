@@ -37,15 +37,32 @@ const PlaylistPage: React.FC = () => {
 
     return (
         <div>
-            {/* Big Screen Sizes */}
-            <div className="hidden sm:block">
-                <div className="w-[50vw] mx-auto">
+            {/* <div className="hidden 2xl:block">
+                <div className="w-[40vw] mx-auto">
+                    <h1>SUPER BIG</h1>
                     <PlaylistDisplay playlists={playlists} />
                 </div>
             </div>
-            {/* Small Screen Sizes */}
-            <div className="block sm:hidden">
+            <div className="hidden xl:block 2xl:hidden">
+                <div className="w-[50vw] mx-auto">
+                    <h1>BIG</h1>
+                    <PlaylistDisplay playlists={playlists} />
+                </div>
+            </div>
+            <div className="hidden md:block xl:hidden">
+                <div className="w-[60vw] mx-auto">
+                    <h1>MID</h1>
+                    <PlaylistDisplay playlists={playlists} />
+                </div>
+            </div>
+            <div className="block md:hidden">
                 <div className="w-[70vw] mx-auto">
+                    <h1>SMALL</h1>
+                    <PlaylistDisplay playlists={playlists} />
+                </div>
+            </div> */}
+            <div className="grid gap-4 justify-center items-center">
+                <div className="w-[70vw] md:w-[60vw] xl:w-[50vw] 2xl:w-[40vw] mx-auto">
                     <PlaylistDisplay playlists={playlists} />
                 </div>
             </div>
