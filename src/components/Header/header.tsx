@@ -20,11 +20,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     }, [])
 
     return (
-        <header className="h-18 flex items-center bg-gray-100 dark:bg-gray-800 text-white py-4 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-700">
+        <header className="h-18 flex items-center bg-gray-100 dark:bg-slate-900 text-white py-4 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-slate-800">
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <div>
-                        <a href="/playlists" className="block">
+                        <a href="/" className="block">
                             <Image
                                 className="block dark:hidden mb-2"
                                 src="/logo-black.png"
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                                 style={{ width: '100%', height: 'auto' }}
                             />
                         </a>
-                        <a href="/playlists" className="block">
+                        <a href="/" className="block">
                             <Image
                                 className="hidden dark:block mb-2"
                                 src="/logo-white.png"
@@ -46,20 +46,16 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                                 style={{ width: '100%', height: 'auto' }}
                             />
                         </a>
-                        {userName ? (
-                            <p className="text-s text-gray-400 dark:text-gray-600 text-center">
+                        {userName && (
+                            <p className="text-s text-gray-400 dark:text-slate-700 text-center">
                                 for {userName}
-                            </p>
-                        ) : (
-                            <p className="text-s text-gray-400 dark:text-gray-600 text-center">
-                                &nbsp;
                             </p>
                         )}
                     </div>
                     <div className="flex items-center space-x-4">
                         <ThemeToggle />
                         <a
-                            href="/playlists"
+                            href="/"
                             className="text-l text-gray-800 dark:text-gray-300 font-semibold hover:text-green-700 dark:hover:text-green-700 transition duration-250 ease-in-out"
                         >
                             Home

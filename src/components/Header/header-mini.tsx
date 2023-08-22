@@ -32,12 +32,12 @@ const Header: React.FC<HeaderProps> = ({
     }, [])
 
     return (
-        <header className="h-18 flex items-center bg-gray-100 dark:bg-gray-800 text-white py-4 sticky top-0 z-5 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-700">
+        <header className="h-14 flex items-center bg-gray-100 dark:bg-slate-900 text-white py-4 sticky top-0 z-5 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-slate-800">
             <div className="container flex items-center">
                 <a href="../" className="text-gray-500 dark:text-gray-300">
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </a>
-                <h1 className="text-3xl flex-1 text-center">{playlistTitle}</h1>
+                <h1 className="text-2xl flex-1 text-center">{playlistTitle}</h1>
                 <button
                     className="px-4 py-2 bg-green-800 text-white rounded"
                     onClick={toggleDisplay}

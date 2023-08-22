@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './LoadingAnimation.module.css' // Import CSS module for the loading animation
+import styles from './LoadingAnimation.module.css'
 
 interface LoadingAnimationProps {
     numBalls: number // Number of bouncing balls

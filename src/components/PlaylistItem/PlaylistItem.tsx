@@ -41,7 +41,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                 Details
                             </a>
                             <a
-                                href={`/playlists/tracks/${playlist.id}`}
+                                href={`/playlists/recommendations/${playlist.id}`}
                                 className="text-sm text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded mb-4 transition duration-250 ease-in-out"
                             >
                                 Recommend
@@ -66,7 +66,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                         <img
                             src={playlist.images[1].url}
                             alt={playlist.name}
-                            className="object-contain"
+                            className="object-contain w-[40vw]"
                         />
                     </div>
                     <div className="flex justify-center items-center text-center flex-col">
@@ -90,7 +90,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                     />
                                 </a>
                                 <a
-                                    href={`/playlists/tracks/${playlist.id}`}
+                                    href={`/playlists/recommendations/${playlist.id}`}
                                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                                 >
                                     <FontAwesomeIcon
@@ -118,7 +118,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                     />
                                 </a>
                                 <a
-                                    href={`/playlists/tracks/${playlist.id}`}
+                                    href={`/playlists/recommendations/${playlist.id}`}
                                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                                 >
                                     <FontAwesomeIcon
