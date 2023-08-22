@@ -41,8 +41,8 @@ const HomePage: React.FC = () => {
                     sizes="100vw"
                     style={{ width: '700px', height: 'auto' }}
                 />
-                <p className="text-xl text-slate-700 my-4">
-                    "Discover Your Perfect Blend"
+                <p className="text-lg sm:text-2xl italic text-slate-700 my-4">
+                    "Beats Aligned, Tunes Refined."
                 </p>
                 {storedAccessToken ? (
                     <GradientButtonAnimated

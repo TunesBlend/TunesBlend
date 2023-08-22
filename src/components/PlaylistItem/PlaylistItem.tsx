@@ -2,7 +2,7 @@ import React from 'react'
 import { Playlist } from '../../interfaces/user_interfaces'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faCircleInfo,
+    faChartLine,
     faLightbulb,
     faList,
 } from '@fortawesome/free-solid-svg-icons'
@@ -38,10 +38,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                 href={`/playlists/details/${playlist.id}`}
                                 className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                             >
-                                <FontAwesomeIcon
-                                    icon={faCircleInfo}
-                                    size="lg"
-                                />
+                                <FontAwesomeIcon icon={faChartLine} size="lg" />
                             </a>
                             <a
                                 href={`/playlists/recommendations/${playlist.id}`}
@@ -59,10 +56,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                 href={`/playlists/details/${playlist.id}`}
                                 className="aspect-square text-center flex justify-center items-center bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                             >
-                                <FontAwesomeIcon
-                                    icon={faCircleInfo}
-                                    size="lg"
-                                />
+                                <FontAwesomeIcon icon={faChartLine} size="lg" />
                             </a>
                         </div>
 
@@ -98,7 +92,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                                 >
                                     <FontAwesomeIcon
-                                        icon={faCircleInfo}
+                                        icon={faChartLine}
                                         size="lg"
                                     />
                                 </a>
@@ -126,7 +120,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                                 >
                                     <FontAwesomeIcon
-                                        icon={faCircleInfo}
+                                        icon={faChartLine}
                                         size="2x"
                                     />
                                 </a>
