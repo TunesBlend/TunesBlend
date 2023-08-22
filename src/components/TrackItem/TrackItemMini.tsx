@@ -13,10 +13,9 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     const audioRef = useRef<HTMLAudioElement>(null)
 
     const handleImageClick = () => {
-        onMouseEnter()
-
         if (audioRef.current) {
             if (audioRef.current.paused) {
+                console.log(audioRef.current)
                 const promise = audioRef.current.play()
                 if (promise !== undefined) {
                     promise.then(() => {}).catch(error => console.error(error)) // Pass the error parameter
@@ -38,7 +37,7 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     }
 
     const handleMouseEnter = () => {
-        // onMouseEnter()
+        onMouseEnter()
     }
 
     // const fadeOutAndPause = (audio: HTMLAudioElement) => {
@@ -57,36 +56,27 @@ const TrackItemMini: React.FC<TrackItemProps> = ({
     // }
 
     return (
-        <li className="border p-1 shadow grid grid-cols-1 gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
+        <div className="border p-1 shadow grid gap-4 dark:bg-gray-700 dark:border-gray-600 dark:shadow-gray-700">
             <div
-                className="col-span-1 flex justify-center items-center"
+                className="flex justify-center items-center"
                 style={{
                     cursor: trackList.track.preview_url ? 'pointer' : 'default',
                 }}
                 onClick={handleImageClick}
-                onMouseEnter={handleMouseEnter}
+                onMouseEnter={onMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
                 <img
                     src={trackList.track.album.images[1].url}
                     alt={trackList.track.name}
-                    className="h-24 w-24"
+                    className="h-10 w-10 sm:h-24 sm:w-24 "
                 />
                 {trackList.track.preview_url && (
                     <audio ref={audioRef} src={trackList.track.preview_url} />
                 )}
             </div>
-            {/* <div className="col-span-3 flex justify-center items-left flex-col">
-                <h2 className="font-semibold text-lg mb-1">
-                    {trackList.track.name}
-                </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    {trackList.track.artists
-                        .map(artist => artist.name)
-                        .join(', ')}
-                </p>
-            </div> */}
-        </li>
+            {/* Other content */}
+        </div>
     )
 }
 

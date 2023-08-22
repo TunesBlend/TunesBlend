@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Track } from '../../interfaces/user_interfaces'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 interface TrackItemProps {
     trackList: Track
@@ -66,10 +68,10 @@ const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
                 )}
             </div>
             <div className="col-span-3 flex justify-center items-left flex-col">
-                <h2 className="font-semibold text-lg mb-1">
+                <h2 className="font-semibold text-md sm:text-lg mb-1">
                     {trackList.track.name}
                 </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2">
                     {trackList.track.artists
                         .map(artist => artist.name)
                         .join(', ')}
@@ -82,7 +84,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ trackList }) => {
                     rel="noopener noreferrer"
                     className="text-center block bg-green-800 hover:bg-green-900 text-white px-3 py-2 rounded transition duration-250 ease-in-out"
                 >
-                    Play Track
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </a>
             </div>
         </li>

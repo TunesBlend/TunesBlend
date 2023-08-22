@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { Track } from '../../interfaces/user_interfaces'
+import React, { useState, useRef } from 'react'
+import { Track } from '@/interfaces/user_interfaces'
 import TrackItem from '../TrackItem/TrackItem'
 import TrackItemMini from '../TrackItem/TrackItemMini'
 import TrackDetails from './TrackDetails'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGrip, faGripLines } from '@fortawesome/free-solid-svg-icons'
 
 interface TrackDisplayProps {
     tracks: Track[]
@@ -20,14 +22,26 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
         setSelectedTrack(track)
     }
 
+    const hiddenAudioRef = useRef<HTMLAudioElement | null>(null)
+
+    const handlePlayHiddenAudio = () => {
+        if (hiddenAudioRef.current) {
+            hiddenAudioRef.current.play()
+        }
+    }
+
     return (
-        <div className="m-4">
-            <div className="flex justify-center items-start mb-4">
+        <div className="">
+            <div className="flex justify-center items-start my-2">
                 <button
                     className="px-4 py-2 bg-green-800 text-white rounded"
                     onClick={toggleDisplay}
                 >
-                    {displayList ? 'Grid View' : 'List View'}
+                    {displayList ? (
+                        <FontAwesomeIcon icon={faGrip} />
+                    ) : (
+                        <FontAwesomeIcon icon={faGripLines} />
+                    )}
                 </button>
             </div>
             {displayList ? (
@@ -39,7 +53,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ tracks }) => {
             ) : (
                 <div>
                     <TrackDetails selectedTrack={selectedTrack} />
-                    <div className="grid gap-2 grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 xl:grid-cols-11 grid-auto-flow-row">
+                    <div className="flex flex-wrap justify-between gap-1">
                         {tracks.map(track => (
                             <TrackItemMini
                                 key={track.track.id}

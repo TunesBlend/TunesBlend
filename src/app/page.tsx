@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 const LoginPage: React.FC = () => {
@@ -8,8 +10,8 @@ const LoginPage: React.FC = () => {
     const authorizeUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`
 
     return (
-        <div>
-            <div className="text-center">
+        <div className="flex h-[80vh] justify-center items-center">
+            <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-semibold mb-4">
                     Welcome to Tunes Blend
                 </h1>

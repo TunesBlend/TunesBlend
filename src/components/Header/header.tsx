@@ -24,12 +24,9 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <div>
-                        {/* <h1 className="text-2xl font-semibold mr-auto text-gray-800 dark:text-gray-300">
-                            {title}
-                        </h1> */}
                         <a href="/playlists" className="block">
                             <Image
-                                className="block dark:hidden"
+                                className="block dark:hidden mb-2"
                                 src="/logo-black.png"
                                 alt={'TunesBlend Logo'}
                                 width={0}
@@ -40,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                         </a>
                         <a href="/playlists" className="block">
                             <Image
-                                className="hidden dark:block"
+                                className="hidden dark:block mb-2"
                                 src="/logo-white.png"
                                 alt={'TunesBlend Logo'}
                                 width={0}
@@ -49,9 +46,13 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                                 style={{ width: '100%', height: 'auto' }}
                             />
                         </a>
-                        {userName && (
+                        {userName ? (
                             <p className="text-s text-gray-400 dark:text-gray-600 text-center">
                                 for {userName}
+                            </p>
+                        ) : (
+                            <p className="text-s text-gray-400 dark:text-gray-600 text-center">
+                                &nbsp;
                             </p>
                         )}
                     </div>

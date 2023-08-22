@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchTracks, fetchPlaylistDetails } from '@/spotify/utils'
 import TrackDisplay from '@/components/TrackDisplay/TrackDisplay'
-import Header from '@/components/Header/header-mini'
 
 const PlaylistPage: React.FC = ({ params }: any) => {
     const [tracks, setTracks] = useState([])
@@ -32,8 +31,7 @@ const PlaylistPage: React.FC = ({ params }: any) => {
     }, [playlist_uri])
 
     return (
-        <div>
-            <h1 className="text-center mt-4">{playlistDetails?.name || ''}</h1>
+        <div className="w-[50vw] mx-auto">
             <TrackDisplay tracks={tracks}></TrackDisplay>
         </div>
     )

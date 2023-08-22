@@ -5,8 +5,14 @@ import { Inter } from 'next/font/google'
 import Header from '../components/Header/header'
 import Footer from '../components/Footer/footer'
 import { ThemeProvider } from './theme-provider'
-import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle'
 import { ReactNode } from 'react'
+
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+import { config } from '@fortawesome/fontawesome-svg-core'
+// Tell Font Awesome to skip adding the CSS automatically
+// since it's already imported above
+config.autoAddCss = false
 
 import dotenv from 'dotenv'
 dotenv.config()
@@ -25,16 +31,16 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body>
+            <body className="flex flex-col min-h-screen">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                 >
                     <div className={inter.className}>
-                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800 p-4 pt-0 pb-0">
+                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800 py-1 px-2">
                             <Header title="TunesBlend" />
-                            <main className="flex-grow flex justify-center items-center">
+                            <main className="w-[100vw] flex-grow">
                                 {children}
                             </main>
                             <Footer />
@@ -47,3 +53,6 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
 }
 
 export default RootLayout
+function userRouter() {
+    throw new Error('Function not implemented.')
+}

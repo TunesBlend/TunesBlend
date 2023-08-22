@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { access } from 'fs'
 
 export const userDetails = async (accessToken: string) => {
     const authHeader = {
@@ -38,16 +37,17 @@ export const fetchPlaylists = async (accessToken: string) => {
         )
         return response.data.items
     } catch (error) {
-        if (axios.isAxiosError(error)) {
-            if (error.response && error.response.status === 401) {
-                console.error('Unauthorized:', error.response.data)
-            } else {
-                console.error('Error fetching playlists:', error)
-            }
-        } else {
-            console.error('Error fetching playlists:', error)
-        }
-        throw error
+        // if (axios.isAxiosError(error)) {
+        //     if (error.response && error.response.status === 401) {
+        //         console.error('Unauthorized:', error.response.data)
+        //     } else {
+        //         console.error('Error fetching playlists:', error)
+        //     }
+        // } else {
+        //     console.error('Error fetching playlists:', error)
+        // }
+        // throw error
+        return 'error'
     }
 }
 

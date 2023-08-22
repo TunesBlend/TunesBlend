@@ -7,7 +7,6 @@ interface TrackDetailsProps {
 
 const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
     const isPlaceholder = !selectedTrack
-
     return (
         <div className="bg-transparent text-white p-4 text-center">
             <div>
@@ -15,11 +14,13 @@ const TrackDetails: React.FC<TrackDetailsProps> = ({ selectedTrack }) => {
                     <img
                         src={selectedTrack.track.album.images[0].url}
                         alt={selectedTrack.track.name}
-                        className={`mx-auto w-64 h-64`}
+                        className={`mx-auto max-w-sm object-fit`}
                     />
                 ) : (
-                    <div
-                        className={`mx-auto w-64 h-64 dark:bg-gray-600 bg-gray-300 blur`}
+                    <img
+                        src={'/images/TrackPicturePlaceholder.png'}
+                        alt={'test'}
+                        className={`mx-auto max-w-sm object-contain blur`}
                     />
                 )}
 
