@@ -14,7 +14,8 @@ export function isTokenExpired(expiryTimeStr: string): boolean {
 export function getAuthenticationURL() {
     const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
     const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
-    const scope = 'user-read-private user-read-email'
+    const scope =
+        'playlist-read-private playlist-modify-private playlist-modify-public user-read-recently-played user-top-read user-library-modify'
 
     return `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`
 }
