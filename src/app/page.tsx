@@ -4,13 +4,32 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import GradientButtonAnimated from '@/components/Buttons/GradientButton/GradientButtonAnimated'
 
-import { getAuthenticationURL, isTokenExpired } from '@/spotify/authentication'
+import {
+    getAuthenticationURL,
+    getNewRefreshToken,
+    isTokenExpired,
+} from '@/spotify/authentication'
 
 const HomePage: React.FC = () => {
-    const [expiryTimeStr, setExpiryTimeStr] = useState('')
+    const [storedExpiryTimeStr, setStoredExpiryTimeStr] = useState('')
+
     useEffect(() => {
-        const storedExpirtyTimeStr = localStorage.getItem('access_token')
-        setExpiryTimeStr(storedExpirtyTimeStr || '')
+        const storedExpiryTime = localStorage.getItem('expiry_time') || ''
+        setStoredExpiryTimeStr(storedExpiryTime)
+
+        const refreshToken = localStorage.getItem('refresh_token') || ''
+
+        if (isTokenExpired(storedExpiryTime)) {
+            getNewRefreshToken(refreshToken)
+                .then(new_access_token => {
+                    if (new_access_token) {
+                        localStorage.setItem('access_token', new_access_token)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error getting new access token:', error)
+                })
+        }
     }, [])
 
     const authenticationURL = getAuthenticationURL()
@@ -39,7 +58,7 @@ const HomePage: React.FC = () => {
                 <p className="text-lg sm:text-2xl italic text-slate-700 my-4">
                     "Beats Aligned, Tunes Refined."
                 </p>
-                {!isTokenExpired(expiryTimeStr) ? (
+                {!isTokenExpired(storedExpiryTimeStr) ? (
                     <GradientButtonAnimated
                         textDisplay="Click to Begin"
                         href="/playlists"

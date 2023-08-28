@@ -58,7 +58,7 @@ const CallbackPage: React.FC = () => {
 
                 const currentTime = new Date().getTime()
                 const expiryTime = currentTime + expires_in * 1000
-                localStorage.setItem('expiryTime', expiryTime.toString())
+                localStorage.setItem('expiry_time', expiryTime.toString())
             })
             .then(() => {
                 const timeout = 1.5

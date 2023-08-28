@@ -11,9 +11,9 @@ const PlaylistPage: React.FC = () => {
     const [playlists, setPlaylists] = useState<Playlist[]>([])
     const router = useRouter()
 
-    const expirtyTimeStr = localStorage.getItem('expiryTime') || ''
-
     useEffect(() => {
+        const expirtyTimeStr = localStorage.getItem('expiry_time') || ''
+
         if (!isTokenExpired(expirtyTimeStr)) {
             const access_token = localStorage.getItem('access_token')
             if (access_token) {

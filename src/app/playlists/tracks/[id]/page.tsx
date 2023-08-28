@@ -21,10 +21,11 @@ const PlaylistPage: React.FC = ({ params }: any) => {
         setPlaylistTitle(string)
     }
 
-    const expirtyTimeStr = localStorage.getItem('expiryTime') || ''
     const router = useRouter()
 
     useEffect(() => {
+        const expirtyTimeStr = localStorage.getItem('expiry_time') || ''
+
         if (!isTokenExpired(expirtyTimeStr)) {
             const access_token = localStorage.getItem('access_token')
             if (access_token) {
