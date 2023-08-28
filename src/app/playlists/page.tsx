@@ -5,33 +5,39 @@ import { fetchPlaylists, userDetails } from '@/spotify/utils'
 import { Playlist } from '@/interfaces/user_interfaces'
 import PlaylistDisplay from '@/components/PlaylistDisplay/PlaylistDisplay'
 import { useRouter } from 'next/navigation'
+import { isTokenExpired } from '@/spotify/authentication'
 
 const PlaylistPage: React.FC = () => {
     const [playlists, setPlaylists] = useState<Playlist[]>([])
     const router = useRouter()
 
+    const expirtyTimeStr = localStorage.getItem('expiryTime') || ''
+
     useEffect(() => {
-        const access_token = localStorage.getItem('access_token')
-        if (access_token) {
-            const user_profile = userDetails(access_token)
-            fetchPlaylists(access_token)
-                .then(items => {
-                    if (items === 'error') {
-                        router.push('/')
-                    } else {
-                        setPlaylists(items)
-                    }
-                })
-                .catch(error => {
-                    if (error.response && error.response.status === 401) {
-                        console.error(
-                            'Error fetching playlists - Unauthorized:',
-                            error,
-                        )
-                    } else {
-                        console.error('Error fetching playlists:', error)
-                    }
-                })
+        if (!isTokenExpired(expirtyTimeStr)) {
+            const access_token = localStorage.getItem('access_token')
+            if (access_token) {
+                fetchPlaylists(access_token)
+                    .then(items => {
+                        if (items === 'error') {
+                            router.push('/')
+                        } else {
+                            setPlaylists(items)
+                        }
+                    })
+                    .catch(error => {
+                        if (error.response && error.response.status === 401) {
+                            console.error(
+                                'Error fetching playlists - Unauthorized:',
+                                error,
+                            )
+                        } else {
+                            console.error('Error fetching playlists:', error)
+                        }
+                    })
+            }
+        } else {
+            router.push('/')
         }
     }, [])
 

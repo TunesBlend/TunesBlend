@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { fetchTracks, fetchPlaylistDetails } from '@/spotify/utils'
 import TrackDisplay from '@/components/TrackDisplay/TrackDisplay'
 import HeaderMini from '@/components/Header/header-mini'
+import { isTokenExpired } from '@/spotify/authentication'
+import { useRouter } from 'next/navigation'
 
 const PlaylistPage: React.FC = ({ params }: any) => {
     const [tracks, setTracks] = useState([])
@@ -19,24 +21,31 @@ const PlaylistPage: React.FC = ({ params }: any) => {
         setPlaylistTitle(string)
     }
 
-    useEffect(() => {
-        const access_token = localStorage.getItem('access_token')
-        if (access_token) {
-            fetchPlaylistDetails(access_token, playlist_uri)
-                .then(details => {
-                    setTitle(details['name'])
-                })
-                .catch(error => {
-                    console.error('Error fetching playlist details:', error)
-                })
+    const expirtyTimeStr = localStorage.getItem('expiryTime') || ''
+    const router = useRouter()
 
-            fetchTracks(access_token, playlist_uri)
-                .then(items => {
-                    setTracks(items)
-                })
-                .catch(error => {
-                    console.error('Error fetching playlists:', error)
-                })
+    useEffect(() => {
+        if (!isTokenExpired(expirtyTimeStr)) {
+            const access_token = localStorage.getItem('access_token')
+            if (access_token) {
+                fetchPlaylistDetails(access_token, playlist_uri)
+                    .then(details => {
+                        setTitle(details['name'])
+                    })
+                    .catch(error => {
+                        console.error('Error fetching playlist details:', error)
+                    })
+
+                fetchTracks(access_token, playlist_uri)
+                    .then(items => {
+                        setTracks(items)
+                    })
+                    .catch(error => {
+                        console.error('Error fetching playlists:', error)
+                    })
+            }
+        } else {
+            router.push('/')
         }
     }, [playlist_uri])
 
