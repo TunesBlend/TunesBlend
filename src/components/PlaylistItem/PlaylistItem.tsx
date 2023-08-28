@@ -25,7 +25,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                             {playlist.name}
                         </h2>
                         <p className="text-sm xl:text-md 2xl:text-lg text-gray-500 dark:text-gray-400 mb-2">
-                            "{playlist.description}"
+                            &ldquo;{playlist.description}&ldquo;
                         </p>
                     </div>
                     <div className="col-span-1 flex flex-col justify-center">
@@ -77,7 +77,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                             {playlist.name}
                         </h2>
                         <p className="text-sm justify-center items-center text-center text-gray-500 dark:text-gray-400 mb-2">
-                            "{playlist.description}"
+                            &ldquo;{playlist.description}&ldquo;
                         </p>
                     </div>
                     <div>

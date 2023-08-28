@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
                     style={{ width: '700px', height: 'auto' }}
                 />
                 <p className="text-lg sm:text-2xl italic text-slate-700 my-4">
-                    "Beats Aligned, Tunes Refined."
+                    &ldquo;Beats Aligned, Tunes Refined.&ldquo;
                 </p>
                 {!isTokenExpired(storedExpiryTimeStr) ? (
                     <GradientButtonAnimated

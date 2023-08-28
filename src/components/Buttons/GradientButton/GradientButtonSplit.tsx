@@ -24,7 +24,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
                             </span>
                         </span>
                         <span className="pl-6 text-indigo-400 group-hover:text-gray-100 transition duration-200">
-                            See what's new &rarr;
+                            See what&rsquo;s new &rarr;
                         </span>
                     </a>
                 </div>
