@@ -16,7 +16,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
         <div>
             {/* Big Screen Sizes */}
             <div className="hidden lg:block">
-                <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 hover:dark:bg-slate-800 transition duration-150 ease-in-out dark:border-transparent dark:shadow-gray-600">
+                <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-600">
                     <div className="col-span-1 flex justify-center items-center">
                         <img
                             src={playlist.images[1].url}
@@ -67,7 +67,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
 
             {/* Small Screen Sizes */}
             <div className="block lg:hidden">
-                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 hover:dark:bg-gray-700 transition duration-150 ease-in-out dark:border-transparent dark:shadow-gray-700">
+                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 dark:bg-gray-800 dark:border-transparent dark:shadow-gray-700">
                     {/* <div className="border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700"> */}
                     <div className=" flex justify-center items-center">
                         <img
