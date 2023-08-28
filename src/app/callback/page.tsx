@@ -55,12 +55,16 @@ const CallbackPage: React.FC = () => {
                 localStorage.setItem('user_details', user_details.display_name)
                 localStorage.setItem('access_token', access_token)
                 localStorage.setItem('refresh_token', refresh_token)
+
+                const currentTime = new Date().getTime()
+                const expiryTime = currentTime + expires_in * 1000
+                localStorage.setItem('expiryTime', expiryTime.toString())
             })
             .then(() => {
                 const timeout = 1.5
                 setTimeout(() => {
                     setLoading(false) // Hide the loading animation
-                    router.push('/playlists') // Navigate to /home after the delay
+                    router.push('/playlists')
                 }, timeout * 1000)
             })
             .catch(error => {

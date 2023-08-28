@@ -32,6 +32,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                                 width={0}
                                 height={0}
                                 sizes="100vw"
+                                priority
                                 style={{ width: '100%', height: 'auto' }}
                             />
                         </a>
@@ -43,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
                                 width={0}
                                 height={0}
                                 sizes="100vw"
+                                priority
                                 style={{ width: '100%', height: 'auto' }}
                             />
                         </a>

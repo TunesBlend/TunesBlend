@@ -4,21 +4,16 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import GradientButtonAnimated from '@/components/Buttons/GradientButton/GradientButtonAnimated'
 
-const HomePage: React.FC = () => {
-    const [storedAccessToken, setAccessToken] = useState('')
+import { getAuthenticationURL, isTokenExpired } from '@/spotify/authentication'
 
+const HomePage: React.FC = () => {
+    const [expiryTimeStr, setExpiryTimeStr] = useState('')
     useEffect(() => {
-        const storedAccessToken = localStorage.getItem('access_token')
-        if (storedAccessToken) {
-            setAccessToken(storedAccessToken)
-        }
+        const storedExpirtyTimeStr = localStorage.getItem('access_token')
+        setExpiryTimeStr(storedExpirtyTimeStr || '')
     }, [])
 
-    const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
-    const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
-    const scope = 'user-read-private user-read-email'
-
-    const authorizeUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`
+    const authenticationURL = getAuthenticationURL()
 
     return (
         <div className="flex h-[80vh] justify-center items-center p-7">
@@ -44,7 +39,7 @@ const HomePage: React.FC = () => {
                 <p className="text-lg sm:text-2xl italic text-slate-700 my-4">
                     "Beats Aligned, Tunes Refined."
                 </p>
-                {storedAccessToken ? (
+                {!isTokenExpired(expiryTimeStr) ? (
                     <GradientButtonAnimated
                         textDisplay="Click to Begin"
                         href="/playlists"
@@ -54,7 +49,7 @@ const HomePage: React.FC = () => {
                 ) : (
                     <GradientButtonAnimated
                         textDisplay="Login to Spotify"
-                        href={authorizeUrl}
+                        href={authenticationURL}
                         gradientColor1="#070707"
                         gradientColor2="#1DB954"
                     />

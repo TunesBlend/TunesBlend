@@ -13,12 +13,16 @@ export const userDetails = async (accessToken: string) => {
     } catch (error) {
         if (axios.isAxiosError(error)) {
             if (error.response && error.response.status === 401) {
-                console.error('Unauthorized:', error.response.data)
+                // console.error('Unauthorized:', error.response.data)
+                console.log('test1')
+                throw error
             } else {
-                console.error('Error fetching playlists:', error)
+                // console.error('Error fetching playlists:', error)
+                console.error('ERRORUIJASDHDIUASHD')
             }
         } else {
-            console.error('Error fetching playlists:', error)
+            // console.error('Error fetching playlists:', error)
+            console.error('ERRORTEST')
         }
         throw error
     }
@@ -37,17 +41,19 @@ export const fetchPlaylists = async (accessToken: string) => {
         )
         return response.data.items
     } catch (error) {
-        // if (axios.isAxiosError(error)) {
-        //     if (error.response && error.response.status === 401) {
-        //         console.error('Unauthorized:', error.response.data)
-        //     } else {
-        //         console.error('Error fetching playlists:', error)
-        //     }
-        // } else {
-        //     console.error('Error fetching playlists:', error)
-        // }
-        // throw error
-        return 'error'
+        if (axios.isAxiosError(error)) {
+            if (error.response && error.response.status === 401) {
+                console.log('test1')
+                throw error
+            } else {
+                // console.error('Error fetching playlists:', error)
+                console.error('ERRORUIJASDHDIUASHD')
+            }
+        } else {
+            // console.error('Error fetching playlists:', error)
+            console.error('ERRORUIJASDHDIUASHD')
+        }
+        throw error
     }
 }
 
