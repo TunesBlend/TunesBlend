@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
 
         const refreshToken = localStorage.getItem('refresh_token') || ''
 
-        if (isTokenExpired(storedExpiryTime)) {
+        if (!isTokenExpired(storedExpiryTime)) {
             getNewRefreshToken(refreshToken)
                 .then(new_access_token => {
                     if (new_access_token) {

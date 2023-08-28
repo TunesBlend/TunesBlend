@@ -19,7 +19,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                 <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-600">
                     <div className="col-span-1 flex justify-center items-center">
                         <img
-                            src={playlist.images[1].url}
+                            src={playlist.images[0].url}
                             alt={playlist.name}
                             className="h-32 w-32 object-contain"
                         />
@@ -71,7 +71,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
                     {/* <div className="border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700"> */}
                     <div className=" flex justify-center items-center">
                         <img
-                            src={playlist.images[1].url}
+                            src={playlist.images[0].url}
                             alt={playlist.name}
                             className="object-contain w-[40vw]"
                         />
