@@ -67,7 +67,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
 
             {/* Small Screen Sizes */}
             <div className="block lg:hidden">
-                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 dark:bg-gray-800 dark:border-transparent dark:shadow-gray-700">
+                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-700">
                     {/* <div className="border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700"> */}
                     <div className=" flex justify-center items-center">
                         <img
