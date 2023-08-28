@@ -14,8 +14,6 @@ export function isTokenExpired(expiryTimeStr: string): boolean {
 export function getAuthenticationURL() {
     const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
     const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI
-    console.log(clientId)
-    console.log(redirectUri)
     const scope =
         'playlist-read-private playlist-modify-private playlist-modify-public user-read-recently-played user-top-read user-library-modify'
 
