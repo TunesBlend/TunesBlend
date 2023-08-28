@@ -16,19 +16,15 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
         <div>
             {/* Big Screen Sizes */}
             <div className="hidden lg:block">
-                <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-600">
+                <div className="mt-4 border p-2 rounded shadow grid grid-cols-5 gap-4 bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-800">
                     <div className="col-span-1 flex justify-center items-center">
-                        <img
-                            src={playlist.images[0].url}
-                            alt={playlist.name}
-                            className="h-32 w-32 object-contain"
-                        />
+                        <img src={playlist.images[0].url} alt={playlist.name} />
                     </div>
                     <div className="col-span-3 flex justify-center items-left flex-col">
-                        <h2 className="font-semibold text-lg mb-2">
+                        <h2 className="font-semibold text-xl xl:text-2xl 2xl:text-3xl mb-2">
                             {playlist.name}
                         </h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                        <p className="text-sm xl:text-md 2xl:text-lg text-gray-500 dark:text-gray-400 mb-2">
                             "{playlist.description}"
                         </p>
                     </div>
@@ -67,17 +63,17 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ playlist }) => {
 
             {/* Small Screen Sizes */}
             <div className="block lg:hidden">
-                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-700">
+                <div className="w-auto mt-4 border p-4 rounded shadow bg-gray-100 dark:bg-gray-900 dark:border-transparent dark:shadow-gray-800">
                     {/* <div className="border p-4 rounded shadow dark:bg-gray-700 dark:border-transparent dark:shadow-gray-700"> */}
                     <div className=" flex justify-center items-center">
                         <img
                             src={playlist.images[0].url}
                             alt={playlist.name}
-                            className="object-contain w-[40vw]"
+                            // className="object-contain w-[40vw]"
                         />
                     </div>
                     <div className="flex justify-center items-center text-center flex-col">
-                        <h2 className="font-semibold text-lg my-2">
+                        <h2 className="font-semibold text-2xl my-2">
                             {playlist.name}
                         </h2>
                         <p className="text-sm justify-center items-center text-center text-gray-500 dark:text-gray-400 mb-2">
