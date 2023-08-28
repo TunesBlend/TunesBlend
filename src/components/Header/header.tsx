@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     }, [])
 
     return (
-        <header className="h-18 flex items-center bg-gray-100 dark:bg-slate-900 text-white py-4 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-slate-800">
+        <header className="h-18 flex items-center bg-gray-100 dark:bg-slate-950 text-white py-4 sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-70 dark:bg-opacity-70 border-b border-gray-200 dark:border-slate-800">
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <div>

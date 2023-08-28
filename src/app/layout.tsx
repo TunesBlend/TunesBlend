@@ -46,7 +46,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
                     enableSystem
                 >
                     <div className={inter.className}>
-                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-slate-900 py-1 px-2">
+                        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-slate-950 py-1 px-2">
                             <Header title="TunesBlend" />
                             <main className="w-[100vw] flex-grow">
                                 {children}
