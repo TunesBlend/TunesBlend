@@ -18,7 +18,7 @@ export const userDetails = async (accessToken: string) => {
                 throw error
             } else {
                 // console.error('Error fetching playlists:', error)
-                console.error('ERRORUIJASDHDIUASHD')
+                console.error('ERRORUIJASDHDIUASHDD')
             }
         } else {
             // console.error('Error fetching playlists:', error)
